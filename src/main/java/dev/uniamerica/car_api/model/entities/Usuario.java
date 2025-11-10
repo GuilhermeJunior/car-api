@@ -1,5 +1,6 @@
 package dev.uniamerica.car_api.model.entities;
 
+import dev.uniamerica.car_api.model.dtos.UsuarioResponse;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -57,5 +58,9 @@ public class Usuario implements UserDetails {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public UsuarioResponse toResponse() {
+        return new UsuarioResponse(this.id, this.username, this.role);
     }
 }

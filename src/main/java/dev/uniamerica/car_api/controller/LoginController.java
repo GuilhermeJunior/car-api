@@ -26,8 +26,5 @@ public class LoginController {
     public ResponseEntity<String> logar(@RequestBody Login login) {
         String token = loginService.logar(login);
         return new ResponseEntity<>(token, HttpStatus.OK);
-
     }
-
-
 }
