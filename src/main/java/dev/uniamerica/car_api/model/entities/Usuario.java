@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -19,11 +20,12 @@ public class Usuario implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private String email;
     private String role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of(new SimpleGrantedAuthority(this.role));
     }
 
     @Override
@@ -60,7 +62,15 @@ public class Usuario implements UserDetails {
         this.role = role;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public UsuarioResponse toResponse() {
-        return new UsuarioResponse(this.id, this.username, this.role);
+        return new UsuarioResponse(this.id, this.username, this.email, this.role);
     }
 }

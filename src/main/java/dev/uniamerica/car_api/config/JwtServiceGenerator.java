@@ -33,8 +33,8 @@ public class JwtServiceGenerator {
         Map<String, Object> payloadData = new HashMap<>();
         payloadData.put("username", usuario.getUsername());
         payloadData.put("id", usuario.getId().toString());
+        payloadData.put("email", usuario.getEmail());
         payloadData.put("role", usuario.getRole());
-        payloadData.put("outracoisa", "teste");
 
         return payloadData;
     }
