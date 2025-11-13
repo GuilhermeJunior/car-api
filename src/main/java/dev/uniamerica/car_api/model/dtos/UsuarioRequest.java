@@ -7,7 +7,7 @@ public record UsuarioRequest(String username, String password, String email, Str
      var usuario = new Usuario();
      usuario.setUsername(username);
      usuario.setEmail(email);
-     usuario.setRogit statusle("ROLE_"+ role);
+     usuario.setRole("ROLE_"+ role);
 
      return usuario;
  }
