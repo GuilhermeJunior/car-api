@@ -21,6 +21,8 @@ public class JwtServiceGenerator {
 
     @Value("${secret.key}")
     public String SECRET_KEY;
+
+
     //Parâmetros para geração do token
    // public static final String SECRET_KEY = "UMACHAVESECRETADASUAAPIAQUIUMACHAVESECRETADASUAAPIAQUIUMACHAVESECRETADASUAAPIAQUIUMACHAVESECRETADASUAAPIAQUI";
     public static final SignatureAlgorithm ALGORITMO_ASSINATURA = SignatureAlgorithm.HS256;
@@ -34,6 +36,7 @@ public class JwtServiceGenerator {
         payloadData.put("username", usuario.getUsername());
         payloadData.put("id", usuario.getId().toString());
         payloadData.put("role", usuario.getRole());
+        payloadData.put("email", usuario.getEmail());
         payloadData.put("outracoisa", "teste");
 
         return payloadData;
