@@ -34,7 +34,7 @@ public class CarController {
         return ResponseEntity.ok(car);
     }
 
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<List<Carro>> findAll() {
         return ResponseEntity.ok(this.carService.findAll());
     }
